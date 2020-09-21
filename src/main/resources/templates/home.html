@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+    <h1>Getting started with the Standard dialects in 5 minutes</h1>
     <!-- ${...} Variable expressions (변수 표현식) -->
     <h2> ${...} Variable expressions (변수 표현식)</h2>
     <div>
@@ -51,6 +52,26 @@
     </div>
 
     <hr/>
+    <!-- *{...} Selection expressions (선택 표현식) -->
+    <h2>*{...} Selection expressions (선택 표현식)</h2>
+    <div>
+        <table border="1">
+            <thead>
+                <th>나이</th>
+                <th>이름</th>
+                <th>주소</th>
+            </thead>
+            <tbody>
+            <tr th:object="${map}"> <!-- 객체의  -->
+                <td th:text="*{age}"></td>
+                <td th:text="*{name}"></td>
+                <td th:text="*{addr}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr/>
     <!-- #{...} Message(i18n) expressions (메시지 표현식) -->
     <h2>#{...} Message(i18n) expressions (메시지 표현식)</h2>
     <h3>messages.properties 에서 지정한 메시지를 가져올 수 있다. (messages_en.properties 는 영어, ko 는 한국 등)</h3>
@@ -70,5 +91,10 @@
             </tbody>
         </table>
     </div>
+
+    <hr/>
+    <!-- @{...} Link(URL) expressions (링크 표현식) -->
+    <h2>@{...} Link(URL) expressions (링크 표현식)</h2>
+    <a th:href="@{/detail}">Detail</a>
 </body>
 </html>

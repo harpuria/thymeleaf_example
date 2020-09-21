@@ -45,4 +45,9 @@ public class HomeController {
 
         return "home";
     }
+
+    @GetMapping("/detail")
+    public String detail(){
+        return "detail";
+    }
 }
