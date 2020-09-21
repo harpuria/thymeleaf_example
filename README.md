@@ -14,6 +14,7 @@
 + Thymeleaf (2.3.4)
 + Gradle (6.5.1)
 + IntelliJ Community (2020.2.1)
++ BootStrap (4.5.2)
 
 ***
 
