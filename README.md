@@ -20,6 +20,8 @@
 
 [참고 자료]
 + 타임리프 공식 홈페이지 [(타임리프 바로가기)](https://www.thymeleaf.org/ "타임리프 바로가기")
++ https://victorydntmd.tistory.com/340
++ https://strongstar.tistory.com/category/%EA%B3%B5%EB%B6%80/Spring%20Boot
 + 구글
 
 ***
