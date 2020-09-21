@@ -12,7 +12,7 @@
             <h2>(5분안에 타임리프 표준 문법 익히기)</h2>
             <p>타임리프 파일은 기본적으로 resources/template/ 안에 위치해야 한다.</p>
         </div>
-        <h3> 1. ${...} Variable expressions (변수식)</h3>
+        <h3> 1. ${...} Variable expressions (가변식)</h3>
         <div class="mt-3">
             <h5>1) 모델에 담겨있는 문자열 가져오기</h5>
             <p th:text="${name} + '님 환영합니다'"></p>
@@ -20,8 +20,24 @@
 
         <!-- map 에 있는 아이템 꺼내기 -->
         <div class="mt-3">
-            <h5>2) Map 에 있는 아이템 꺼내기. ${객체.속성이름}</h5>
+            <h5>2) Map 에 있는 아이템 꺼내기. ${객체.필드명}</h5>
             <table border="1">
+                <thead>
+                <th>나이</th>
+                <th>이름</th>
+                <th>주소</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${map.age}"></td>
+                    <td th:text="${map.name}"></td>
+                    <td th:text="${map.addr}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- 나이가 20인 사람만 출력하기 -->
+            <table border="1" th:if="${map.age == 10}">
                 <thead>
                 <th>나이</th>
                 <th>이름</th>
@@ -46,17 +62,34 @@
                     <th>주소</th>
                 </thead>
                 <tbody>
-                    <tr th:each="item : ${listMap}">
+                    <tr th:each="item : ${listMap}"> <!-- th:each="아이템 : ${리스트객체}" 형식 -->
                         <td th:text="${item.age}"></td>
                         <td th:text="${item.name}"></td>
                         <td th:text="${item.addr}"></td>
                     </tr>
                 </tbody>
             </table>
+
+            <table border="1">
+                <thead>
+                    <th>나이</th>
+                    <th>이름</th>
+                    <th>주소</th>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${listMap}" th:if="${item.age >= 20}"> <!-- 아이템 중 나이가 20 이상인 사람들만 출력하기 -->
+                    <td th:text="${item.age}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.addr}"></td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <hr/>
         <h3>2. *{...} Selection expressions (선택식)</h3>
+        <p>선택식은 변수식인 ${...} 에서 바로 직전의 선택된 객체에서 실행되는 식을 말한다.</p>
         <div>
             <table border="1">
                 <thead>
@@ -65,8 +98,8 @@
                 <th>주소</th>
                 </thead>
                 <tbody>
-                <tr th:object="${map}">
-                    <td th:text="*{age}"></td>
+                <tr th:object="${map}">        <!-- 변수식으로 객체를 선택한다. -->
+                    <td th:text="*{age}"></td> <!-- *{필드명} 으로 표현. * ${map.age} 과 동일한 역할을 한다 -->
                     <td th:text="*{name}"></td>
                     <td th:text="*{addr}"></td>
                 </tr>
