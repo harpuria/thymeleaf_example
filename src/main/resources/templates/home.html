@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- ${...} Variable expressions (변수 표현식) -->
+    <h2> ${...} Variable expressions (변수 표현식)</h2>
+    <div>
+        <h4>모델에 담겨있는 문자열 가져오기</h4>
+        <p th:text="${name} + '님 환영합니다'"></p>
+    </div>
+
+    <!-- map 에 있는 아이템 꺼내기 -->
+    <div>
+        <h4>Map 에 있는 아이템 꺼내기. ${맵객체.키}</h4>
+        <table border="1">
+            <thead>
+                <th>나이</th>
+                <th>이름</th>
+                <th>주소</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${map.age}"></td>
+                    <td th:text="${map.name}"></td>
+                    <td th:text="${map.addr}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- list 에 들어있는 map 을 순회하면서 꺼내기 -->
+    <div>
+        <h4>List 에 들어있는 map을 순회하면서 꺼내기. th:each="아이템 : ${리스트}"</h4>
+        <table border="1">
+            <thead>
+                <th>나이</th>
+                <th>이름</th>
+                <th>주소</th>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${listMap}">
+                    <td th:text="${item.age}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.addr}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr/>
+    <!-- #{...} Message(i18n) expressions (메시지 표현식) -->
+    <h2>#{...} Message(i18n) expressions (메시지 표현식)</h2>
+    <h3>messages.properties 에서 지정한 메시지를 가져올 수 있다. (messages_en.properties 는 영어, ko 는 한국 등)</h3>
+    <div>
+        <table border="1">
+            <thead>
+                <th th:text="#{message.age}">나이</th>
+                <th th:text="#{message.name}">이름</th>
+                <th th:text="#{message.addr}">주소</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${map.age}"></td>
+                    <td th:text="${map.name}"></td>
+                    <td th:text="${map.addr}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
