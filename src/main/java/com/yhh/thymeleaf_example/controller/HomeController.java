@@ -50,4 +50,9 @@ public class HomeController {
     public String detail(){
         return "detail";
     }
+
+    @GetMapping("/layout_exam")
+    public String layoutExam(){
+        return "layout_exam";
+    }
 }
