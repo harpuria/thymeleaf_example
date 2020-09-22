@@ -54,7 +54,7 @@
         </div>
 
         <div class="mt-3">
-            <h5>3) List 에 들어있는 map을 순회하면서 꺼내기.</h5>
+            <h5>3) List 에 들어있는 map을 순회하면서 꺼내기. (th:each)</h5>
             <table border="1">
                 <thead>
                     <th>나이</th>
@@ -69,7 +69,16 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
 
+        <div class="mt-3">
+            <h5>4) 조건문 활용하기 (th:if / th:switch ~ th:case)</h5>
+            <!-- if -->
+            <div th:if="${map.age >= 10}">
+                <p th:text="${map.name + '님은 ' + map.age + '살 입니다'}"></p>
+            </div>
+
+            <!-- list + if -->
             <table border="1">
                 <thead>
                     <th>나이</th>
@@ -85,6 +94,11 @@
                 </tbody>
             </table>
 
+            <!-- switch case -->
+            <div th:each="item : ${listMap}" th:switch="${item.age}">
+                <p th:case="10" th:text="${item.age + '살 입니다'}"></p>
+                <p th:case="30" th:text="${item.age + '살 입니다'}"></p>
+            </div>
         </div>
 
         <hr/>
