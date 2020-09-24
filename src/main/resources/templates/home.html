@@ -78,6 +78,9 @@
                 <p th:text="${map.name + '님은 ' + map.age + '살 입니다'}"></p>
             </div>
 
+            <!-- unless 는 결과가 참이 아닌경우. 즉, 거짓인 경우가 참이 된다. 그러므로 아래는 map.age 가 10이면 출력되지 않는다.-->
+            <p th:unless="${map.age == 10}" th:text="${map.name + '님은 10 살이 아닙니다'}">비어 있는 리스트</p>
+
             <!-- list + if -->
             <table border="1">
                 <thead>
@@ -145,7 +148,11 @@
 
         <hr/>
         <h3>4. @{...} Link(URL) expressions (링크식)</h3>
+        <p>컨텍스트를 포함한 URL 이 만들어진다</p>
         <a th:href="@{/detail}">Detail</a>
+
+        <p>이렇게 절대적인 URL 을 작성할 수 도 있다. https:// http:// 포함하면 절대 URL 이 된다.</p>
+        <a th:href="@{https://naver.com}">뇌입원</a>
 
         <hr/>
         <h3>5. ~{...} Fragment expressions (파편식)</h3>
